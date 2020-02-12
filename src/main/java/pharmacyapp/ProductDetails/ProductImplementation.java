@@ -71,12 +71,19 @@ public class ProductImplementation implements ProductDAO {
 			obj.quantity=rs.getInt("quantity");
 			obj.expiryDate = rs.getDate("expiry_date");
 			out.add(obj);
+			
+			
 		}
+		for (Product P1 : out) {
+			System.out.print("ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
+						+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
+
+				}
 		return out;
 	}
 
 	public ArrayList<Product> selectProductId(int numb) throws Exception {
-		// TODO Auto-generated method stub
+		
 		String sql = "select product_id, product_name,product_type,cost,quantity,expiry_date from product where product_id=?";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -99,16 +106,13 @@ public class ProductImplementation implements ProductDAO {
 			obj.quantity=rs.getInt("quantity");
 			obj.expiryDate = rs.getDate("expiry_date");
 
-			out.add(obj);
+			out.add(obj);	
+		}	
+		for (Product P1 : out) {
+		System.out.print("ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
+					+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
 
-			// out=us.displayProduct();
-//			for (Product P1 : out) {
-	//			System.out.print("ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
-		//				+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
-
-			//}
-			// out2 = us2.selectProductId(numb);
-		}
+			}
 		return out;
 	}
 }

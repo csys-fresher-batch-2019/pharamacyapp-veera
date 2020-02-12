@@ -62,8 +62,8 @@ public class SalesImplementation implements SalesDAO {
         Connection con2 = TestConnection.getConnection();
 		Statement stmt2 = con2.createStatement();
 		int row = stmt2.executeUpdate(sql2);
-	System.out.println(sql2);
-		System.out.println(row);
+	//System.out.println(sql2);
+		//System.out.println(row);
 	}
 
 }

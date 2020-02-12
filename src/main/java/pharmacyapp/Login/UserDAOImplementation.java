@@ -1,4 +1,4 @@
-package pharmacyapp.Login;
+ package pharmacyapp.Login;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,11 +28,30 @@ public class UserDAOImplementation implements UserDAO {
 		stmp.setString(1, p.getName());
 		stmp.setString(2, p.getEmailId());
 		stmp.setString(3, p.getPassword());
-		
 		stmp.setLong(4, p.getContact());
 		stmp.executeUpdate();
 		System.out.println("Done");
-		int num=sc.nextInt();
+	}
+	
+	public boolean user(String name,String password) throws Exception 
+	{
+		System.out.println(password);
+		// TODO Auto-generated method stub
+
+		Connection con = TestConnection.getConnection();
+		String sql="select password from UserRegister where name=(select name from UserRegister where name='"+name+"')";
+		Statement stmt = con.createStatement();
+		ResultSet rs1 = stmt.executeQuery(sql);
+		if(rs1.next()) {
+			String pass=rs1.getString("password");
+			//System.out.println(pass);
+			if (password.equals(pass)) 
+			{
+				return true;
+			}
+		}
+		return false;
+
 	}
 
 	public void user() throws Exception {
@@ -43,14 +62,16 @@ public class UserDAOImplementation implements UserDAO {
 		System.out.println("Enter Password:");
 		String pass = sc.next();
 		UserDAOImplementation com = new UserDAOImplementation();
-		if (com.user(name, pass)) {
+		boolean res=com.user(name, pass);
+		
+		if (res) {
 			System.out.println(">>>>LOGIN SUCESSFULL<<<<");
 			// view order details
-			System.out.println("Enter 21 To view  Product List");
+			System.out.println("Enter 1 To view  Product List");
 			Scanner sc1 = new Scanner(System.in);
 			int str = sc1.nextInt();
 			switch (str) {
-			case 21:
+			case 1:
 				System.out.println(">>>>>>>>>Product List<<<<<<<<<");
 				ProductImplementation us = new ProductImplementation();
 				// Product d=new Product();
@@ -59,16 +80,16 @@ public class UserDAOImplementation implements UserDAO {
 				out = us.displayProduct();
 				for (Product P : out) {
 					System.out.print("ProductId:" + P.productId + ", ProductName:" + P.productName + ", ProductType:"
-							+ P.productType + ",Cost:" + P.cost + ",ExpiryDate" + P.expiryDate + "\n");
+							+ P.productType + ",Cost:" + P.cost + ",Quantity:"+P.quantity+",ExpiryDate:" + P.expiryDate + "\n");
 
 				}
 
-				System.out.println(out);
-				System.out.println("Enter 22 To place Order");
+				//System.out.println(out);
+				System.out.println("Enter 2 To place Order");
 				Scanner scn = new Scanner(System.in);
 				int str1 = scn.nextInt();
 				switch (str1) {
-				case 22:
+				case 2:
 					//// Again display productList to user
 					ProductImplementation us1 = new ProductImplementation();
 
@@ -77,7 +98,7 @@ public class UserDAOImplementation implements UserDAO {
 					for (Product P1 : out1) {
 						System.out.print(
 								"ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
-										+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
+										+ P1.productType + ",Cost: " + P1.cost +",Quantity:"+P1.quantity+ ",ExpiryDate " + P1.expiryDate + "\n");
 
 					}
 				//	System.out.println(out1);
@@ -89,6 +110,7 @@ public class UserDAOImplementation implements UserDAO {
 					
 					ProductImplementation us3 = new ProductImplementation();
 					//Product d2= new Product();
+					
 			         
 					ArrayList<Product> out2 = new ArrayList<Product>();
 					
@@ -125,26 +147,13 @@ public class UserDAOImplementation implements UserDAO {
 
 			}
 
-		} else {
+		} 
+		else {
 			System.out.println(">>>>LOGIN FAILED<<<<");
+			
 		}
 	}
 
-	public boolean user(String name, String pass) throws Exception {
-		// TODO Auto-generated method stub
-
-		Connection con = TestConnection.getConnection();
-
-		Statement stmt = con.createStatement();
-		if (stmt.executeUpdate("select name from UserRegister where name='" + name + "'") != 0) {
-			ResultSet rs1 = stmt.executeQuery("select password from UserRegister where name='" + name + "'");
-			rs1.next();
-			if (pass.equals(rs1.getString("password"))) {
-				return true;
-			}
-		}
-		return false;
-
-	}
+	
 
 }

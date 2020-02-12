@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import pharmacyapp.Admin.AdminDAOImplementation;
 import pharmacyapp.Login.UserDAOImplementation;
 import pharmacyapp.Login.UserDetails;
 import pharmacyapp.OrderDetails.Order;
@@ -24,23 +25,23 @@ public static void main(String[] args) throws Exception {
 	
 	System.out.println(" Enter 1 for AdminLogin \n Enter 2 for UserLogin");
 	int num=sc.nextInt();
-	switch(num)
-	{ 
-	case 1:
-		CompanyImplementation obj=new CompanyImplementation();
+	if(num==1)
+	{
+		AdminDAOImplementation obj=new AdminDAOImplementation();
 		obj.admin();
-		System.out.println(" Enter 1 for insert Order Details: \n Enter 2 for insert CompanyDetails: \n Enter 5 for insert ProductDetails: \n Enter 6 for insert PurchaseDetails: \n Enter 7 for insert SalesDetails:  \n Enter 8 for  insert StockDetails:");
 		int nu=sc.nextInt();
-
-		switch(nu) 
+		switch(nu)
 		{
 		case 1:
 			
 			orderDAOImplementation obj2=new orderDAOImplementation();
 			Order d=new Order();
 			Scanner sc1=new Scanner(System.in);
-			System.out.println(">>>Enter Order Details<<<");
-	        //System.out.println("Enter the orderId:");
+			System.out.println(">>>Order Details<<<   \n Enter 1 insert  order Details \n Enter 2 view order Details");
+	        int n=sc.nextInt();
+	        if(n==1)
+	        {
+			//System.out.println("Enter the orderId:");
 	       //d.setOrderId(sc1.nextInt());
 	        System.out.println("Enter the UserName:");
 	        d.setUserName(sc1.next());
@@ -60,14 +61,18 @@ public static void main(String[] args) throws Exception {
 		//	System.out.println("Register Successfully");
 			//int num41=sc.nextInt();
 			break;
+	        }
+	        else if(n==2)
+	        {
+	        	orderDAOImplementation o=new orderDAOImplementation();
+	        	o.displayOrderDetails();
+	        	break;
+	        }
 			
 		case 2:
 			
-			System.out.println(">>> Company Details <<< \n Enter 1 for Add Company Details \n Enter 2 for UpdateCost");
-		int num1=sc.nextInt();
-			if(num1==1)
-			{
-			
+			System.out.println(">>> Company Details <<<  ");
+		
 				CompanyImplementation obj3=new CompanyImplementation();
 				CompanyModel p = new CompanyModel();
 				Scanner sc2=new Scanner(System.in);
@@ -80,28 +85,15 @@ public static void main(String[] args) throws Exception {
 				System.out.println("Enter the CompanyAddress:");
 				p.setCompanyAddress(sc2.next());
 		        obj3.addCompanyDetails(p);
-			    num1=sc.nextInt();
-			}
+			    
 			
-			    else if (num1==2)
-			{
 		
-				ProductImplementation im=new ProductImplementation();
-				Scanner scq=new Scanner(System.in);
-				System.out.println("Enter the UpdateCost:");
-				int cost=scq.nextInt();
-				System.out.println("Enter the ProductId:");
-				int proId=scq.nextInt();
-				im.updateCost(cost,proId);
-			
-			break;
-			}
 		
 			
 		    
 		
-		case 5:
-			System.out.println(">>> Product Details <<< \n Enter 1 for Add ProductDetails: \n Enter 2 for DispalyProduct: \n  Enter 3 to UpdateProductType: \n Enter 4 to UpdateCost: \n Enter 5 to Select ProductId:");
+		case 3 :
+			System.out.println(">>> Product Details <<< \n Enter 1 for Add ProductDetails: \n Enter 2 for DisplayProduct: \n Enter 3 to UpdateProductType: \n Enter 4 to UpdateCost: \n Enter 5 to Select ProductId:");
 		  
 			int num5=sc.nextInt();
 			switch (num5)
@@ -126,55 +118,58 @@ public static void main(String[] args) throws Exception {
 			LocalDate expiryDate=LocalDate.parse(date);
 			a.addProductDetails(p1);
 			
-			break;
+			
 				
-				case 2:
-					System.out.println("DisplayProductDetails");
+			case 2:
+					System.out.println(">>>>>>>>>ProductDetails<<<<<<<<<");
 			ProductImplementation pi=new ProductImplementation();	
 		         pi.displayProduct();
 			
 			case 3:
-					System.out.println("UpdateProductType");
-					   ProductImplementation p=new ProductImplementation();
+					System.out.println("\n>>>>UpdateProductType<<<<\n");
+					   ProductImplementation P1=new ProductImplementation();
 				       Scanner sck=new Scanner(System.in);
 				       System.out.println("Enter product type");
 				       String pt=sck.next();
 				       System.out.println("Enter product id");
 				       int c=sck.nextInt();
-				       p.updateProductType(pt, c);
-					break;
-				case 4:
-					System.out.println("UpdateProductCost");
+				       P1.updateProductType(pt, c);
+					
+		   case 4:
+					System.out.println(">>>>>>>>>>UpdateProductCost<<<<<<<<<<");
 					ProductImplementation pi1=new ProductImplementation();	
 					System.out.println("Enter ProductId");
 					int ProductId=sc.nextInt();
-					System.out.println("Enter th Cost:");
+					System.out.println("Enter the Cost:");
 					int cost=sc.nextInt();
 					pi1.updateCost(cost, ProductId);
 					
-				case 5:
+	                	
+		  case 5:
 	                 System.out.println("Select ProductID");
 	                 ProductImplementation pi2=new ProductImplementation();
 	                 System.out.println("Enter the ProductId");
 	                 int productid=sc.nextInt();
 	                 pi2.selectProductId(productid);
+	                 
+	                
 			}
+			 break;
 			
-	   case 6:
-		   System.out.println(">>> Purchase Details <<< \n Enter 61 for insert Purchase Details \n Enter 62 for AmountCalculation  ");
+	   case 4:
+		   System.out.println(">>> Purchase Details <<< \n Enter 1 for insert Purchase Details \n Enter 2 for AmountCalculation  ");
 		   int num6=sc.nextInt();
 		   
 		   
 	   switch(num6)
 	   {
 	   
-	   case 61:
+	   case 1:
 			
 			PurchaseImplementation p5=new PurchaseImplementation();
 			Scanner sc5=new Scanner(System.in);
 			Purchase p2=new Purchase();
-			System.out.println("Enter the PurchaseId:");
-			p2.purchaseId=sc5.nextInt();
+			
 			System.out.println("Enter the ProductId:");
 			p2.productId=sc5.nextInt();
 			   System.out.println("Enter the CompanyId:");
@@ -184,23 +179,24 @@ public static void main(String[] args) throws Exception {
 				System.out.println("Enter the Amount:");
 			    p2.amount=sc5.nextInt();
 			    p5.addPurchaseDetails(p2);
-			    break;
-	   case 62:
+			   
+	   case 2:
 			PurchaseImplementation obj1 = new PurchaseImplementation();
+			System.out.println(">>>>>AmountCalculation<<<<<");
 				Scanner sct = new Scanner(System.in);
 				System.out.println("Enter purchase Id:");
 				int purchaseId = sct.nextInt();
 				System.out.println("Enter product Id:");
 				int productId = sct.nextInt();
 				obj1.amountCalculation(productId, purchaseId);
-				break;
 	   }
-		case 7:
-			System.out.println(">>> Sales Details <<< \n Enter 71 for Add SalesDetails \n Enter 72 for Update Amount sales");
+	   break;
+		case 5:
+			System.out.println(">>> Sales Details <<< \n Enter 1 for Add SalesDetails \n Enter 2 for Update Amount sales");
 	int num7=sc.nextInt();
 			switch (num7)
 			{
-				case 71:
+				case 1:
 			SalesImplementation in=new SalesImplementation();
 			//Sell s1=new Sell();
 			Scanner scan = new Scanner(System.in);
@@ -217,8 +213,8 @@ public static void main(String[] args) throws Exception {
 			s.salesQuantity=scan.next();
 			System.out.println("Enter the amount:");
 			s.amount=scan.nextInt();
-		in.addSalesDetails(s);
-		case 72:
+		     in.addSalesDetails(s);
+		case 2:
 			SalesImplementation obje=new SalesImplementation();
 			Scanner sce=new Scanner(System.in);
 			System.out.println("Enter the productId:");
@@ -226,17 +222,19 @@ public static void main(String[] args) throws Exception {
 			System.out.println("Enter the salesId:");
 			int salesId=sce.nextInt();
 			obje. amountCalAfterSales( productId, salesId);
+			
 			}
-		case 8:
+		case 6:
 			System.out.println(">>> Stock Details <<< ");
 			Stock1Implementation S=new Stock1Implementation();
 			Stock1 st=new Stock1();
 			System.out.println("Enter the StockId");
 			break;
-		
 		}
-	case 2:
-		
+	}
+	
+		else if(num==2)
+		{
 		System.out.println(">>>>User Portal<<<<<");
 		System.out.println("Enter 1 for New User: \n Enter 2 for Existing User:");
 		Scanner sc2=new Scanner(System.in);
@@ -262,11 +260,14 @@ public static void main(String[] args) throws Exception {
 			UserDAOImplementation u1=new UserDAOImplementation();
 	//    UserDetails s=new UserDetails();
 				u1.user();
-			
 		}
-	}
+		}
+		else
+		{
+			System.out.println("Login Failed");
+		}
+	
+		}
 		
 }
-}
-
 
