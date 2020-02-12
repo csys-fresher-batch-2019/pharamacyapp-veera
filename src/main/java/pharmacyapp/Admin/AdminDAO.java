@@ -1,4 +1,4 @@
-package pharmacyapp.Admin;
+package pharmacyapp.admin;
 
 public interface AdminDAO {
 	

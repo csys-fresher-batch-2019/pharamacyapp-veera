@@ -1,4 +1,4 @@
-package pharmacyapp.CompanyDetails;
+package pharmacyapp.companyDetails;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,17 +1,17 @@
-package pharmacyapp.PurchaseDetails;
+package pharmacyapp.purchaseDetails;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import pharmacyapp.CompanyDetails.TestConnection;
-import pharmacyapp.ProductDetails.Product;
+import pharmacyapp.companyDetails.TestConnection;
+import pharmacyapp.productDetails.Product;
 
 
 public class PurchaseImplementation {
 	public void addPurchaseDetails(Purchase p) throws Exception {
-		String sql = "insert into purchase(purchase_id,product_id,purchase_date,company_id,purchase_quantity,amount) values("+p.purchaseId+","+p.productId+",sysdate,"+p.companyId+","+p.purchaseQuantity+","+p.amount+")";
+		String sql = "insert into purchase(purchase_id,product_id,purchase_date,company_id,purchase_quantity,amount) values("+p.getPurchaseId()+","+p.getProductId()+",sysdate,"+p.getCompanyId()+","+p.getPurchaseQuantity()+","+p.getAmount()+")";
 		System.out.println(sql);	
 		Connection con = TestConnection.getConnection();
 		Statement stmt = con.createStatement();

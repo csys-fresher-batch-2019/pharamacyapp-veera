@@ -1,10 +1,17 @@
-package pharmacyapp.Admin;
+package pharmacyapp.admin;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@ToString
+@NoArgsConstructor
 public class AdminDetails {
-	 public  int adminId;
-	 public  String adminName;
-	 public String emailId;
-	 public String password;
+	 private  int adminId;
+	 private  String adminName;
+	 private String emailId;
+	 private String password;
 
  public int getAdminId() {
 		return adminId;

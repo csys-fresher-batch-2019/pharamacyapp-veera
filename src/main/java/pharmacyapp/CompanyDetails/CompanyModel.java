@@ -1,5 +1,18 @@
-package pharmacyapp.CompanyDetails;
-//Testmodel
+package pharmacyapp.companyDetails;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import pharmacyapp.admin.AdminDetails;
+
+/**Testmodel
+ * 
+ * @author veer2379
+ *
+ */
+@Data
+@ToString
+@NoArgsConstructor
 public class CompanyModel {
 	private int companyId;
 	private String companyName;

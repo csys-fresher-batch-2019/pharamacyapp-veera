@@ -1,4 +1,4 @@
-package pharmacyapp.PurchaseDetails;
+package pharmacyapp.purchaseDetails;
 
 public interface PurchaseDAO {
 void addPurchaseDetails(PurchaseDAO p) throws Exception;

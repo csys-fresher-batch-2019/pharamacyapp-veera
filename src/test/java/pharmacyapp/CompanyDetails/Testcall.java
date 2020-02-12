@@ -5,19 +5,21 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import pharmacyapp.Admin.AdminDAOImplementation;
-import pharmacyapp.Login.UserDAOImplementation;
-import pharmacyapp.Login.UserDetails;
-import pharmacyapp.OrderDetails.Order;
-import pharmacyapp.OrderDetails.orderDAOImplementation;
-import pharmacyapp.ProductDetails.Product;
-import pharmacyapp.ProductDetails.ProductImplementation;
-import pharmacyapp.PurchaseDetails.Purchase;
-import pharmacyapp.PurchaseDetails.PurchaseImplementation;
-import pharmacyapp.SalesDetails.Sales;
-import pharmacyapp.SalesDetails.SalesImplementation;
-import pharmacyapp.Stock1Details.Stock1;
-import pharmacyapp.Stock1Details.Stock1Implementation;
+import pharmacyapp.admin.AdminDAOImplementation;
+import pharmacyapp.companyDetails.CompanyImplementation;
+import pharmacyapp.companyDetails.CompanyModel;
+import pharmacyapp.login.UserDAOImplementation;
+import pharmacyapp.login.UserDetails;
+import pharmacyapp.orderDetails.Order;
+import pharmacyapp.orderDetails.orderDAOImplementation;
+import pharmacyapp.productDetails.Product;
+import pharmacyapp.productDetails.ProductImplementation;
+import pharmacyapp.purchaseDetails.Purchase;
+import pharmacyapp.purchaseDetails.PurchaseImplementation;
+import pharmacyapp.salesDetails.Sales;
+import pharmacyapp.salesDetails.SalesImplementation;
+import pharmacyapp.stock1Details.Stock1;
+import pharmacyapp.stock1Details.Stock1Implementation;
 
 public class Testcall {
 public static void main(String[] args) throws Exception {
@@ -104,15 +106,15 @@ public static void main(String[] args) throws Exception {
 			Product p1 = new Product();
 			Scanner sc4 = new Scanner(System.in);
 			System.out.println("Enter product id:");
-			p1.productId = sc4.nextInt();
+			p1.setProductId(sc4.nextInt());
 			System.out.println("Enter product Name:");
-			p1.productName = sc4.next();
+			p1.setProductName(sc4.next());
 			System.out.println("Enter product Type");
-			p1.productType = sc4.next();
+			p1.setProductType(sc4.next());
 			System.out.println("Enter cost:");
-			p1.cost = sc4.nextInt();
+			p1.setCost(sc4.nextInt());
 			System.out.println("Enter quantity:");
-			p1.quantity = sc4.nextInt();
+			p1.setQuantity(sc4.nextInt());
 			System.out.println("Enter the ExpiryDate:");
 			String date=sc4.next();
 			LocalDate expiryDate=LocalDate.parse(date);
@@ -171,13 +173,13 @@ public static void main(String[] args) throws Exception {
 			Purchase p2=new Purchase();
 			
 			System.out.println("Enter the ProductId:");
-			p2.productId=sc5.nextInt();
-			   System.out.println("Enter the CompanyId:");
-				p2.companyId=sc5.nextInt();
+			    p2.setProductId(sc5.nextInt());
+			    System.out.println("Enter the CompanyId:");
+				p2.setCompanyId(sc5.nextInt());
 				System.out.println("Enter the PurchaseQuantity:");
-				p2.purchaseQuantity=sc5.nextInt();
+				p2.setPurchaseQuantity(sc5.nextInt());
 				System.out.println("Enter the Amount:");
-			    p2.amount=sc5.nextInt();
+			    p2.setAmount(sc5.nextInt());
 			    p5.addPurchaseDetails(p2);
 			   
 	   case 2:
@@ -202,17 +204,17 @@ public static void main(String[] args) throws Exception {
 			Scanner scan = new Scanner(System.in);
 			Sales s=new Sales();
 			System.out.println("Enter the SalesId:");
-			s.salesId=scan.nextInt();
+			s.setSalesId(scan.nextInt());
 			System.out.println("Enter the productId:");
-			s.productId=scan.nextInt();
+			s.setProductId(scan.nextInt());
 			System.out.println("Enter the SalesDate:");
 			   DateTimeFormatter SalesDate = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			   LocalDateTime now = LocalDateTime.now();
 			   System.out.println(SalesDate.format(now));
 			System.out.println("Enter the SalesQuantity:");
-			s.salesQuantity=scan.next();
+			s.setSalesQuantity(scan.next());
 			System.out.println("Enter the amount:");
-			s.amount=scan.nextInt();
+			s.setAmount(scan.nextInt());
 		     in.addSalesDetails(s);
 		case 2:
 			SalesImplementation obje=new SalesImplementation();

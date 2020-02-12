@@ -1,13 +1,20 @@
-package pharmacyapp.SalesDetails;
+package pharmacyapp.salesDetails;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import pharmacyapp.companyDetails.CompanyModel;
+@Data
+@ToString
+@NoArgsConstructor
 public class Sales
 {
-	public int salesId;
-   public	int productId;
-   public Date salesDate;
-   public String salesQuantity;
-   public int amount;
+	private int salesId;
+   private	int productId;
+   private Date salesDate;
+   private String salesQuantity;
+   private int amount;
 }

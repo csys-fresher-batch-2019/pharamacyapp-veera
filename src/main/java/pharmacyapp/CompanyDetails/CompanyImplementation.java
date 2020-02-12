@@ -1,4 +1,4 @@
-package pharmacyapp.CompanyDetails;
+package pharmacyapp.companyDetails;
 //Test class
 
 import java.sql.Statement;

@@ -1,4 +1,4 @@
-package pharmacyapp.SalesDetails;
+package pharmacyapp.salesDetails;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import pharmacyapp.CompanyDetails.TestConnection;
+import pharmacyapp.companyDetails.TestConnection;
 
 
 
@@ -24,11 +24,11 @@ public class SalesImplementation implements SalesDAO {
 		//int row = stmt.executeUpdate(sql);
 		//System.out.println(row);
 		PreparedStatement stmp=con.prepareStatement(sql);
-		stmp.setInt(1,se.salesId);
-		stmp.setInt(2,se.productId);	
-		stmp.setDate(3,(Date) se.salesDate);
-		stmp.setString(4,se.salesQuantity);
-		stmp.setInt(5,se.amount);
+		stmp.setInt(1,se.getSalesId());
+		stmp.setInt(2,se.getProductId());	
+		stmp.setDate(3,(Date) se.getSalesDate());
+		stmp.setString(4,se.getSalesQuantity());
+		stmp.setInt(5,se.getAmount());
 		stmp.executeUpdate();
 		System.out.println("Done");
 		

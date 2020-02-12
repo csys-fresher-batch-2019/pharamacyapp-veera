@@ -1,4 +1,4 @@
-package pharmacyapp.ProductDetails;
+package pharmacyapp.productDetails;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import pharmacyapp.CompanyDetails.TestConnection;
+import pharmacyapp.companyDetails.TestConnection;
 
 import java.sql.SQLException;
 
@@ -16,7 +16,7 @@ public class ProductImplementation implements ProductDAO {
 
 	public void addProductDetails(Product p) throws Exception {
 		String sql = "insert into product(product_id,product_name,product_type,cost,quantity,expiry_date) " + "values("
-				+ p.productId + ",'" + p.productName + "','" + p.productType + "','" + p.cost + "','"+p.quantity+"'," + p.expiryDate
+				+ p.getProductId() + ",'" + p.getProductName() + "','" + p.getProductType() + "','" + p.getCost() + "','"+p.getQuantity()+"'," + p.getExpiryDate()
 				+ ")";
 		Connection c1 = TestConnection.getConnection();
 		Statement stmt = c1.createStatement();
@@ -64,19 +64,19 @@ public class ProductImplementation implements ProductDAO {
 		ArrayList<Product> out = new ArrayList<Product>();
 		while (rs.next()) {
 			Product obj = new Product();
-			obj.productId = rs.getInt("product_id");
-			obj.productName = rs.getString("product_name");
-			obj.productType = rs.getString("product_type");
-			obj.cost = rs.getInt("cost");
-			obj.quantity=rs.getInt("quantity");
-			obj.expiryDate = rs.getDate("expiry_date");
+			obj.setProductId(rs.getInt("product_id"));
+			obj.setProductName(rs.getString("product_name"));
+			obj.setProductType(rs.getString("product_type"));
+			obj.setCost(rs.getInt("cost"));
+			obj.setQuantity(rs.getInt("quantity"));
+			obj.setExpiryDate(rs.getDate("expiry_date"));
 			out.add(obj);
 			
 			
 		}
 		for (Product P1 : out) {
-			System.out.print("ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
-						+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
+			System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
+						+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
 
 				}
 		return out;
@@ -99,18 +99,18 @@ public class ProductImplementation implements ProductDAO {
 		ArrayList<Product> out = new ArrayList<Product>();
 		while (rs.next()) {
 
-			obj.productId = rs.getInt("product_id");
-			obj.productName = rs.getString("product_name");
-			obj.productType = rs.getString("product_type");
-			obj.cost = rs.getInt("cost");
-			obj.quantity=rs.getInt("quantity");
-			obj.expiryDate = rs.getDate("expiry_date");
+			obj.setProductId(rs.getInt("product_id"));
+			obj.setProductName(rs.getString("product_name"));
+			obj.setProductType(rs.getString("product_type"));
+			obj.setCost(rs.getInt("cost"));
+			obj.setQuantity(rs.getInt("quantity"));
+			obj.setExpiryDate(rs.getDate("expiry_date"));
 
 			out.add(obj);	
 		}	
 		for (Product P1 : out) {
-		System.out.print("ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
-					+ P1.productType + ",Cost: " + P1.cost + ",ExpiryDate " + P1.expiryDate + "\n");
+		System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
+					+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
 
 			}
 		return out;

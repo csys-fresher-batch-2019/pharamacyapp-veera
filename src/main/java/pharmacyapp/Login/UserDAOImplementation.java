@@ -1,4 +1,4 @@
- package pharmacyapp.Login;
+ package pharmacyapp.login;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import pharmacyapp.CompanyDetails.CompanyImplementation;
-import pharmacyapp.CompanyDetails.TestConnection;
+import pharmacyapp.companyDetails.CompanyImplementation;
+import pharmacyapp.companyDetails.TestConnection;
 import pharmacyapp.ProductDetails.Product;
 import pharmacyapp.ProductDetails.ProductImplementation;
 
@@ -79,8 +79,8 @@ public class UserDAOImplementation implements UserDAO {
 				ArrayList<Product> out = new ArrayList<Product>();
 				out = us.displayProduct();
 				for (Product P : out) {
-					System.out.print("ProductId:" + P.productId + ", ProductName:" + P.productName + ", ProductType:"
-							+ P.productType + ",Cost:" + P.cost + ",Quantity:"+P.quantity+",ExpiryDate:" + P.expiryDate + "\n");
+					System.out.print("ProductId:" + P.getProductId() + ", ProductName:" + P.getProductName() + ", ProductType:"
+							+ P.getProductType() + ",Cost:" + P.getCost() + ",Quantity:"+P.getQuantity()+",ExpiryDate:" + P.getExpiryDate() + "\n");
 
 				}
 
@@ -97,8 +97,8 @@ public class UserDAOImplementation implements UserDAO {
 					out1 = us1.displayProduct();
 					for (Product P1 : out1) {
 						System.out.print(
-								"ProductId: " + P1.productId + ", ProductName: " + P1.productName + ", ProductType: "
-										+ P1.productType + ",Cost: " + P1.cost +",Quantity:"+P1.quantity+ ",ExpiryDate " + P1.expiryDate + "\n");
+								"ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
+										+ P1.getProductType() + ",Cost: " + P1.getCost() +",Quantity:"+P1.getQuantity()+ ",ExpiryDate " + P1.getExpiryDate() + "\n");
 
 					}
 				//	System.out.println(out1);
@@ -118,8 +118,8 @@ public class UserDAOImplementation implements UserDAO {
 
 					for (Product P3: out2) {
 						System.out.print(
-								"ProductId: " + P3.productId + ", ProductName: " + P3.productName + ", ProductType: "
-										+ P3.productType + ",Cost: " + P3.cost + ",ExpiryDate " + P3.expiryDate + "\n");
+								"ProductId: " + P3.getProductId() + ", ProductName: " + P3.getProductName() + ", ProductType: "
+										+ P3.getProductType() + ",Cost: " + P3.getCost() + ",ExpiryDate " + P3.getExpiryDate() + "\n");
 
 					}
 					//System.out.println(out2);

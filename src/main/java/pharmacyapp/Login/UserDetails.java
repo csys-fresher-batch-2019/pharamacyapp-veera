@@ -1,10 +1,18 @@
-package pharmacyapp.Login;
+package pharmacyapp.login;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import pharmacyapp.admin.AdminDetails;
+
+@Data
+@ToString
+@NoArgsConstructor
 public class UserDetails {
-	public String name;
-	public	String emailId;
-	public String password;
-	public	long contact;
+	private String name;
+	private String emailId;
+	private String password;
+	private	long contact;
 public String getName() {
 		return name;
 	}

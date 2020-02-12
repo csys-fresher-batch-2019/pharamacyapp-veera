@@ -1,11 +1,18 @@
-package pharmacyapp.Stock1Details;
+package pharmacyapp.stock1Details;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@ToString
+@NoArgsConstructor
 public class Stock1 {
-	public int stock1Id;
-	public int productId;
-	public	String stock1Name;
-	public int stock1Number;
-	public	String stock1Type;
-	public String stock1Status;
+	private int stock1Id;
+	private int productId;
+	private	String stock1Name;
+	private int stock1Number;
+	private	String stock1Type;
+	private String stock1Status;
 	
 }

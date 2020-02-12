@@ -1,20 +1,34 @@
-package pharmacyapp.ProductDetails;
+package pharmacyapp.productDetails;
 
 import java.util.Date;
 
-//TestModel
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import pharmacyapp.companyDetails.CompanyModel;
+
+/**TestModel
+ * 
+ * @author veer2379
+ *
+ */
+@Data
+@ToString
+@NoArgsConstructor
+
 public class Product {
+	private int productId;
+	private String productName;
+	private String productType;
+	private int cost;
+	private int quantity;
+	private Date expiryDate;
 @Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productType=" + productType
 				+ ", cost=" + cost + ", Quantity ="+quantity+", expiryDate=" + expiryDate + "]";
 	}
-public int productId;
-public String productName;
-public String productType;
-public int cost;
-public int quantity;
-public Date expiryDate;
+
 
 }
 

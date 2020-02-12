@@ -1,4 +1,4 @@
-package pharmacyapp.CompanyDetails;
+package pharmacyapp.companyDetails;
 //interface
 public interface CompanyDAO
 {	//public boolean AdminLogin(String Adminname, String pass) throws Exception;

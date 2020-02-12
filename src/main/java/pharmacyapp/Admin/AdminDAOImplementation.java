@@ -1,12 +1,11 @@
-package pharmacyapp.Admin;
+package pharmacyapp.admin;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import pharmacyapp.CompanyDetails.CompanyImplementation;
-import pharmacyapp.CompanyDetails.TestConnection;
+import pharmacyapp.companyDetails.TestConnection;
 
 public class AdminDAOImplementation {
 	public void admin() throws Exception {

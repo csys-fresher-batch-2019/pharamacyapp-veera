@@ -1,14 +1,21 @@
-package pharmacyapp.OrderDetails;
+package pharmacyapp.orderDetails;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@ToString
+@NoArgsConstructor
 public class Order {
-	int orderId;
-	String userName;
-	String productName;
-	int productId;
-	int quantity;
-	String emailId;
-	long  contact;
-	String orderStatus;
+private	int orderId;
+private	String userName;
+private	String productName;
+private	int productId;
+private	int quantity;
+private	String emailId;
+private	long  contact;
+private	String orderStatus;
 	
 	public long getContact() {
 		return contact;

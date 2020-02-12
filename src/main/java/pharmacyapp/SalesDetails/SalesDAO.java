@@ -1,4 +1,4 @@
-package pharmacyapp.SalesDetails;
+package pharmacyapp.salesDetails;
 
 public interface SalesDAO {
 void addSalesDetails(Sales se)throws Exception;

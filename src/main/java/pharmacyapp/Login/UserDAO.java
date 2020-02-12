@@ -1,4 +1,4 @@
-package pharmacyapp.Login;
+package pharmacyapp.login;
 
 public interface UserDAO {
 void addUserDetails(UserDetails p) throws Exception;
