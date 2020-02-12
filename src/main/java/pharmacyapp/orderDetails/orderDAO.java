@@ -1,4 +1,4 @@
-package pharmacyapp.OrderDetails;
+package pharmacyapp.orderDetails;
 
 import java.util.ArrayList;
 

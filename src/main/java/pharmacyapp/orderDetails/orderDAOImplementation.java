@@ -1,4 +1,4 @@
-package pharmacyapp.OrderDetails;
+package pharmacyapp.orderDetails;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import pharmacyapp.CompanyDetails.TestConnection;
-import pharmacyapp.ProductDetails.Product;
+import pharmacyapp.companyDetails.TestConnection;
+import pharmacyapp.productDetails.Product;
 
 
 
@@ -51,17 +51,17 @@ public class orderDAOImplementation implements orderDAO{
 		ArrayList<Order> out = new ArrayList<Order>();
 		while (rs.next()) {
 			Order obj = new Order();
-			obj.orderId = rs.getInt("order_id");
-			obj.userName = rs.getString("user_name");
-			obj.productName = rs.getString("product_name");
-			obj.quantity = rs.getInt("quantity");
-			obj.emailId=rs.getString("Email_id");
-			obj.contact= rs.getLong("contact");
+			obj.setOrderId(rs.getInt("order_id"));
+			obj.setUserName(rs.getString("user_name"));
+			obj.setProductName(rs.getString("product_name"));
+			obj.setQuantity(rs.getInt("quantity"));
+			obj.setEmailId(rs.getString("Email_id"));
+			obj.setContact(rs.getLong("contact"));
 			out.add(obj);
 		}
 		for (Order O: out)
 		{
-			System.out.println("OrderId: " + O.orderId + ",UserName: " + O.userName+ ",ProductName: "+ O.productName + ",Quantity: "+ O.quantity + ",EmailId:"+ O.emailId+ ",Contact:"+ O.contact + "\n");
+			System.out.println("OrderId: " + O.getOrderId() + ",UserName: " + O.getUserName()+ ",ProductName: "+ O.getProductName() + ",Quantity: "+ O.getQuantity() + ",EmailId:"+ O.getEmailId()+ ",Contact:"+ O.getContact() + "\n");
 		}
 		return out;
 	}

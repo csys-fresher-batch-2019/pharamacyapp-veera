@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 import pharmacyapp.companyDetails.CompanyImplementation;
 import pharmacyapp.companyDetails.TestConnection;
-import pharmacyapp.ProductDetails.Product;
-import pharmacyapp.ProductDetails.ProductImplementation;
+import pharmacyapp.productDetails.Product;
+import pharmacyapp.productDetails.ProductImplementation;
 
 
 public class UserDAOImplementation implements UserDAO {
