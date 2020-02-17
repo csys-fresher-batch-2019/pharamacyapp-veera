@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import pharmacyapp.companyDetails.TestConnection;
 
-public class AdminDAOImplementation {
+public class AdminDAOImplementation implements AdminDAO{
 	public void admin() throws Exception {
 
 		System.out.println("Enter Admin_Name:");

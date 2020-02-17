@@ -1,23 +1,46 @@
 package pharmacyapp.stock1Details;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import pharmacyapp.companyDetails.TestConnection;
 
 import java.sql.SQLException;
 
+public class Stock1Implementation implements Stock1DAO {
 
-public class Stock1Implementation implements Stock1DAO{
-	
-	public void addStockDetails(Stock1 s)throws Exception
-	{
-		String sql="insert into stock1(stock1_id,product_id, stock1_name,stock1_number,stock1_type,stock1_status ) values ("+s.getStock1Id()+","+s.getProductId()+",'"
-				+ ""+s.getStock1Name()+"',"+s.getStock1Number()+",'"+s.getStock1Type()+"','"+s.getStock1Status()+"')";
+	public void addStockDetails(Stock1 s) throws Exception {
+		String sql = "insert into stock1(stock_id,stock_date,product_id,opening_stock,purchase_quantity,sales_quantity,closing_stock)  values (stock_id.nextval,SYSDATE,"
+				+ s.getProductId() + "," + s.getOpeningStock() + "," + s.getPurchaseQuantity() + ","
+				+ s.getSalesQuantity() + "," + s.getClosingStock() + ")";
 		Connection c1 = TestConnection.getConnection();
 		Statement stmt = c1.createStatement();
 		int row = stmt.executeUpdate(sql);
-					
 		System.out.println(row);
 	}
+
+	public void updateClosingStock(Stock1 s) throws Exception {
+		//Stock1 s = new Stock1();
+		Connection con = TestConnection.getConnection();
+		CallableStatement stmt = con.prepareCall("{call CLOSINGSTOCK (?)}");
+		// PreparedStatement stmp = con.prepareStatement(sql);
+		stmt.setInt(1, s.getStockId());
+		 stmt.execute();
+		
+	}
+
+	@Override
+	public void updateOpeningStock(int stockId) throws Exception {
+		Stock1 o = new Stock1();
+		String sql = "update stock1 set opening_stock=closing_stock where stock_id=?";
+		Connection con = TestConnection.getConnection();
+		PreparedStatement stmp = con.prepareStatement(sql);
+		stmp.setInt(1, o.getStockId());
+		int row = stmp.executeUpdate();
+		System.out.println(row);
+
+	}
+
 }

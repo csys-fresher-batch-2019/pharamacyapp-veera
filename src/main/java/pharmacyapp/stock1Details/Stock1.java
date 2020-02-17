@@ -1,5 +1,7 @@
 package pharmacyapp.stock1Details;
 
+import java.sql.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -8,11 +10,12 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Stock1 {
-	private int stock1Id;
+	private int stockId;
+	private Date stockDate;
 	private int productId;
-	private	String stock1Name;
-	private int stock1Number;
-	private	String stock1Type;
-	private String stock1Status;
+	private int openingStock;
+	private int purchaseQuantity;
+	private int salesQuantity;
+	private int closingStock;
 	
 }

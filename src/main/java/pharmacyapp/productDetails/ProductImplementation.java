@@ -74,11 +74,11 @@ public class ProductImplementation implements ProductDAO {
 			
 			
 		}
-		for (Product P1 : out) {
-			System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
-						+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
-
-				}
+//		for (Product P1 : out) {
+//			System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
+//						+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
+//
+//				}
 		return out;
 	}
 
@@ -108,11 +108,11 @@ public class ProductImplementation implements ProductDAO {
 
 			out.add(obj);	
 		}	
-		for (Product P1 : out) {
-		System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
-					+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
-
-			}
+//		for (Product P1 : out) {
+//		System.out.print("ProductId: " + P1.getProductId() + ", ProductName: " + P1.getProductName() + ", ProductType: "
+//					+ P1.getProductType() + ",Cost: " + P1.getCost() + ",ExpiryDate " + P1.getExpiryDate() + "\n");
+//
+//			}
 		return out;
 	}
 }
