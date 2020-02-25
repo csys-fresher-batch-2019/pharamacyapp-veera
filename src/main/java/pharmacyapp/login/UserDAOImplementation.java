@@ -16,7 +16,7 @@ import pharmacyapp.productDetails.ProductImplementation;
 public class UserDAOImplementation implements UserDAO {
 	static 	Scanner sc = new Scanner(System.in);
 
-	public void addUserDetails(UserDetails p) throws Exception {
+	public int addUserDetails(UserDetails p) throws Exception {
 		// TODO Auto-generated method stub
 		String sql = "insert into UserRegister(name,Email_id,password,contact) values (?,?,?,?)";
 		Connection con = TestConnection.getConnection();
@@ -32,6 +32,7 @@ public class UserDAOImplementation implements UserDAO {
 		System.out.println("Done");
 		con.close();
 		stmp.close();
+		return 0;
 	}
 	
 	public boolean user(String name,String password) throws Exception 
